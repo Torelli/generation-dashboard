@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #5A57FF;
+    --accent-color: #FF5A8B;
+    --aside-text: #FFFFFF;
+    --primary-text: #000000;
+    --secondary-text: #CFCFCF;
+}
+
 * {
     margin: 0;
     padding: 0;
