@@ -156,6 +156,7 @@ nav > div {
 }
 
 .dashboard-container {
+  min-height: 20rem;
   margin-top: 5rem;
 }
 
@@ -208,10 +209,10 @@ h2 {
 }
 
 .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--secondary-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary-text);
 }
 
 .info-text > h3 {
@@ -225,22 +226,55 @@ h2 {
 }
 
 .icon {
-    color: var(--secondary-text);
-    border: 1px solid var(--secondary-text);
-    padding: 1px;
-    border-radius: 5px;
+  color: var(--secondary-text);
+  border: 1px solid var(--secondary-text);
+  padding: 1px;
+  border-radius: 5px;
 }
 
 .icon > i {
-    transform: scale(0.7)
+  transform: scale(0.7);
 }
 
 i.expenses {
-    transform: scaleX(-0.7);
+  transform: scaleX(-0.7);
 }
 
 .sales > div > .chart {
-    display: flex;
+  display: flex;
 }
 
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 8rem;
+  overflow-y: scroll;
+}
 
+.messages > h2 {
+  margin-bottom: 1rem;
+}
+
+.message {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 2fr) repeat(2, 1fr);
+  padding-inline: 1rem;
+}
+
+.message > span {
+  font-size: small;
+}
+
+.message > .answered {
+  color: var(--primary-color);
+}
+
+.message > .time {
+  color: var(--secondary-text);
+  justify-self: end;
+}
+
+.message-text {
+   justify-self: start;
+}
