@@ -27,6 +27,7 @@ body {
   border-radius: var(--radius);
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 7fr);
+  min-width: 50rem;
 }
 
 aside {
