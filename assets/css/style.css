@@ -3,9 +3,12 @@
   --primary-color: #5a57ff;
   --accent-color: #ff5a8b;
   --aside-text: #ffffff;
-  --primary-text: #000000;
-  --secondary-text: #cfcfcf;
+  --primary-text: #333333;
+  --secondary-text: #bfbfbf;
   --radius: 50px;
+  --x0: calc(var(--n) * 1.334 + var(--n) * var(--n) * 0.5325 + 0.235);
+  --floor: calc(var(--x0) - 0.5);
+  --x: calc(var(--x0) - var(--floor));
 }
 
 * {
@@ -15,16 +18,15 @@
 }
 
 body {
-  padding: 8rem 8rem 0 8rem;
+  padding: 8rem 22rem 0 22rem;
   background-color: var(--bg);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .container {
-  background-color: #ffffff;
   border-radius: var(--radius);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 5fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 7fr);
 }
 
 aside {
@@ -37,10 +39,12 @@ aside {
   padding-block: 2rem;
   color: var(--aside-text);
   border-radius: var(--radius);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 2;
 }
 
 h1 {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 ul {
@@ -58,16 +62,185 @@ li {
   color: var(--secondary-text);
 }
 
-li>i {
-    justify-self: end;
+li > i {
+  justify-self: end;
 }
 
-li>span {
-    justify-self: start;
+li > span {
+  justify-self: start;
 }
 
-li:hover, li.selected {
+li:hover,
+li.selected {
   border-left: 6px solid var(--aside-text);
   color: var(--aside-text);
   transition: all 0.1s;
 }
+
+main {
+  background-color: #ffffff;
+  border-radius: var(--radius);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 88%;
+  padding: 1rem 5rem 1rem 5rem;
+  margin-top: 3rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+
+nav > div {
+  color: var(--secondary-text);
+}
+
+.profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-info > img {
+  width: 2.3rem;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.name-email {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-email > span:first-of-type {
+  color: var(--primary-text);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.notification {
+  position: relative;
+  font-size: large;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  right: 0.1rem;
+  top: 0.08rem;
+  font-size: 5px;
+  color: var(--accent-color);
+}
+
+.nav-sort {
+  display: flex;
+  justify-content: space-between;
+  width: 7rem;
+  flex-shrink: 0;
+  font-size: small;
+}
+
+.nav-sort > span {
+  color: var(--primary-text);
+  font-size: medium;
+  font-weight: 600;
+}
+
+.dashboard-container {
+  margin-top: 5rem;
+}
+
+h2 {
+  font-size: xx-large;
+}
+
+.welcome-message {
+  color: var(--secondary-text);
+}
+
+.graphs {
+  margin-top: 2rem;
+  height: 12rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.graphs > div {
+  border-left: 1px dashed var(--secondary-text);
+  border-bottom: 1px dashed var(--secondary-text);
+  padding-left: 0.5rem;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.chart > div {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.progress {
+  transition: all 0.4s;
+  width: 50%;
+  border-radius: var(--radius);
+}
+
+.revenue > div > .progress {
+  background: linear-gradient(var(--primary-color), #ffffef);
+}
+
+.expenses > div > .progress {
+  background: linear-gradient(var(--accent-color), #ffffef);
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-text);
+}
+
+.info-text > h3 {
+  color: var(--secondary-text);
+}
+
+.info-text > span {
+  font-size: large;
+  font-weight: bold;
+  color: var(--primary-text);
+}
+
+.icon {
+    color: var(--secondary-text);
+    border: 1px solid var(--secondary-text);
+    padding: 1px;
+    border-radius: 5px;
+}
+
+.icon > i {
+    transform: scale(0.7)
+}
+
+i.expenses {
+    transform: scaleX(-0.7);
+}
+
+.sales > div > .chart {
+    display: flex;
+}
+
+
